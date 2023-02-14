@@ -1,0 +1,2 @@
+# Templete-2
+it is Simple Single Page Design by Basic HTML 5 &amp;&amp; CSS 3 
