@@ -379,8 +379,7 @@ main .container .arr {
 .discount-item:hover {
   transform: scale(1.05);
 }
-.discount-item figure {
-  /* width: 260px; */
+.discount-item figure 
   height: 100%;
 }
 
