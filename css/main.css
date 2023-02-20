@@ -14,9 +14,57 @@
   --main-color: #a5c9ca;
   --alt-color: #395b64;
   --active-color: #0ff;
-  --transition-duration: 0.5s;
+  --transition-duration: 0.3s;
   --white: #e7f6f2;
   --bg-color: #2c3333;
+}
+
+/* :root {
+  --main-color: #eaeaea;
+  --alt-color: #08d9d6;
+  --active-color: #ff2e63;
+  --transition-duration: 0.3s;
+  --white: #e7f6f2;
+  --bg-color: #252a34;
+} */
+
+/* :root {
+  --main-color: #F9F7F7;
+  --alt-color: #3F72AF;
+  --active-color: #DBE2EF;
+  --transition-duration: 0.3s;
+  --white: #e7f6f2;
+  --bg-color: #112D4E;
+} */
+
+/* :root {
+  --main-color: #E9F8F9;
+  --alt-color: #C0EEF2;
+  --active-color: #537FE7 ;
+  --transition-duration: 0.3s;
+  --white: #e7f6f2;
+  --bg-color: #181823;
+} */
+
+/* :root {
+  --main-color: #F0E9D2;
+  --alt-color: #E6DDC4;
+  --active-color: #678983 ;
+  --transition-duration: 0.3s;
+  --white: #e7f6f2;
+  --bg-color: #181D31;
+} */
+
+::-webkit-scrollbar {
+  background-color: var(--bg-color);
+  width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--alt-color);
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--active-color);
 }
 
 body {
@@ -83,7 +131,7 @@ section {
 /* for Medium Devices */
 @media (min-width: 768px) {
   .container {
-    width: 720px !important;
+    width: 750px !important;
   }
 }
 
@@ -97,7 +145,7 @@ section {
 /* for Extra Lagre Devices */
 @media (min-width: 1200px) {
   .container {
-    width: 1180px !important;
+    width: 1170px !important;
   }
 }
 
@@ -152,31 +200,45 @@ nav > ul {
 }
 nav > ul > li {
   position: relative;
-  transition: all var(--transition-duration);
-  border-style: solid;
-  border-color: var(--active-color);
-  border-width: 0;
-  overflow: hidden;
+  padding: 5px 10px !important;
+  /* border: 2px solid transparent; */
+  /* overflow: hidden; */
 }
+
 nav > ul > li::before {
   position: absolute;
   content: "";
   border-top: 2px solid var(--active-color);
   border-bottom: 2px solid var(--active-color);
   width: 0;
+  height: 100%;
   height: calc(100% - 4px);
-  left: 0;
+  left: 0px;
   top: 0;
   transition: all var(--transition-duration);
-  z-index: -1;
+  transition-delay: var(--transition-duration);
+  /* z-index: 2; */
 }
-nav > ul > li:hover {
-  border-left-width: 2px;
-  border-right-width: 2px;
+nav > ul > li::after {
+  position: absolute;
+  content: "";
+  border-left: 2px solid var(--active-color);
+  border-right: 2px solid var(--active-color);
+  width: calc(100% - 4px);
+  height: 0;
+  left: 0px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all var(--transition-duration);
 }
+
 nav > ul > li:hover::before {
   width: 100%;
 }
+nav > ul > li:hover::after {
+  height: 100%;
+}
+
 nav > ul > li i {
   color: var(--active-color);
 }
@@ -203,8 +265,53 @@ header .bars {
   display: none;
 }
 
+.dropDown {
+  display: flex;
+  gap: 10px;
+  /* justify-content: space-between; */
+  border: 2px solid var(--active-color);
+  width: max-content;
+  background-color: var(--bg-color);
+  left: 100%;
+  top: 150%;
+  transform: translateY(20px);
+  transition: all var(--transition-duration);
+  visibility: hidden;
+  opacity: 0;
+}
+
+.dropDown > ul > li {
+  width: 120px;
+  text-align: center;
+  margin-top: 10px;
+  text-transform: capitalize;
+}
+
+.dropDown > ul > li:hover {
+  background-color: var(--alt-color);
+}
+
+.dropDown .links-header {
+  border-bottom: 1px solid var(--active-color);
+  width: max-content;
+  margin: auto;
+}
+
+.dropDown > ul > li a {
+  padding-left: 10px;
+}
+
+nav > ul > li:hover > .dropDown,
+nav > ul > li > .dropDown:hover {
+  left: 0;
+  top: 100%;
+  visibility: visible;
+  opacity: 1;
+  z-index: 2;
+}
+
 /* for Medium Devices */
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
   header nav > ul {
     display: none !important;
   }
@@ -337,8 +444,10 @@ main .container .arr {
   margin: 20px 0;
 }
 .discount-desc {
+  position: relative;
   background-color: var(--alt-color);
   padding: 10px;
+  max-width: 100vw;
   color: #000;
   grid-column: 1 / 3;
 }
@@ -350,13 +459,16 @@ main .container .arr {
   margin-bottom: 20px;
 }
 .discount-desc > .lines {
+  position: absolute;
+  right: 10px;
+  bottom: 20px;
   justify-content: flex-end;
   gap: 10px;
   margin-top: 10px;
 }
 .discount-desc > .lines > * {
-  width: 50px;
-  height: 3px;
+  width: 60px;
+  height: 2px;
   background-color: var(--active-color);
 }
 .discount-item {
@@ -379,7 +491,7 @@ main .container .arr {
 .discount-item:hover {
   transform: scale(1.05);
 }
-.discount-item figure 
+.discount-item figure {
   height: 100%;
 }
 
