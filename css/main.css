@@ -11,15 +11,6 @@
   font-family: "Pacifico", cursive;
 }
 
-:root {
-  --main-color: #a5c9ca;
-  --alt-color: #395b64;
-  --active-color: #0ff;
-  --transition-duration: 0.3s;
-  --white: #e7f6f2;
-  --bg-color: #2c3333;
-}
-
 html {
   scroll-behavior: smooth;
 }
@@ -32,8 +23,6 @@ html {
   --white: #e7f6f2;
   --bg-color: #032430;
 }
-
-/*  */
 
 ::-webkit-scrollbar {
   background-color: var(--bg-color);
@@ -71,6 +60,7 @@ section {
 .main-title {
   margin-bottom: 50px;
 }
+
 .main-title > h2 {
   font-size: 40px;
   color: var(--main-color);
@@ -98,6 +88,7 @@ section {
     width: 50%;
   }
 }
+
 .container {
   width: 100%;
   margin: 0 auto;
@@ -149,7 +140,6 @@ section {
   animation: display-none 2 1s linear;
 }
 
-
 .loading-container {
   overflow: hidden;
   position: relative;
@@ -173,7 +163,7 @@ section {
   width: 100px;
   height: 100px;
   position: relative;
-  animation: move infinite 1s linear ;
+  animation: move infinite 1s linear;
 }
 
 @keyframes move {
@@ -190,14 +180,13 @@ section {
   position: absolute;
   content: "";
   left: 0%;
-  bottom: 50px;
+  bottom: 45px;
   width: 100%;
   height: 10px;
   background-color: var(--active-color);
   border-radius: 50px;
   box-shadow: inset 0 0 10px var(--main-color);
 }
-
 
 .loading .loading-container::after {
   width: 0%;
@@ -215,7 +204,6 @@ section {
     width: 100%;
   }
 }
-
 
 /* ------------------- Header */
 header {
@@ -245,6 +233,7 @@ header > .container > .logo {
     transform: rotateZ(-5deg);
   }
 }
+
 header > .container > .logo * {
   font-size: 30px;
   font-family: "Pacifico", cursive;
@@ -659,6 +648,7 @@ main .container .arr {
 .sprites-item:nth-of-type(4) figure > img {
   transform: translateY(-550px);
 }
+
 .sprites-item:nth-of-type(4):hover figure > img {
   transform: translateY(calc(-550px - 90px));
 }
