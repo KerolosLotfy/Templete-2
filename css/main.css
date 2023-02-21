@@ -24,7 +24,6 @@ html {
   scroll-behavior: smooth;
 }
 
-
 :root {
   --main-color: #c6f8ff;
   --alt-color: #607d8b;
@@ -136,6 +135,87 @@ section {
     width: 1170px !important;
   }
 }
+
+/* ------------------- Loading */
+.loading {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--bg-color);
+  z-index: 3;
+  visibility: hidden;
+  animation: display-none 2 1s linear;
+}
+
+
+.loading-container {
+  overflow: hidden;
+  position: relative;
+  width: 150px;
+  height: 150px;
+}
+
+@keyframes display-none {
+  0% {
+    visibility: visible;
+  }
+  100% {
+    visibility: hidden;
+  }
+}
+
+.loading .cart {
+  background-image: url("../images/icons8-shopping-cart-64.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100px;
+  height: 100px;
+  position: relative;
+  animation: move infinite 1s linear ;
+}
+
+@keyframes move {
+  0% {
+    left: -100%;
+  }
+
+  100% {
+    left: 100%;
+  }
+}
+.loading .loading-container::before,
+.loading .loading-container::after {
+  position: absolute;
+  content: "";
+  left: 0%;
+  bottom: 50px;
+  width: 100%;
+  height: 10px;
+  background-color: var(--active-color);
+  border-radius: 50px;
+  box-shadow: inset 0 0 10px var(--main-color);
+}
+
+
+.loading .loading-container::after {
+  width: 0%;
+  left: 0%;
+  animation: line-loader infinite 1s linear;
+  background-color: var(--main-color);
+}
+
+@keyframes line-loader {
+  0% {
+    width: 0%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
 
 /* ------------------- Header */
 header {
