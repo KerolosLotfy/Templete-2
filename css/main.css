@@ -24,23 +24,17 @@ html {
   scroll-behavior: smooth;
 }
 
+
 :root {
-  --main-color: #f9f7f7;
-  --alt-color: #3f72af;
-  --active-color: #0ff;
+  --main-color: #c6f8ff;
+  --alt-color: #607d8b;
+  --active-color: #efaf00;
   --transition-duration: 0.3s;
   --white: #e7f6f2;
-  --bg-color: #112d4e;
+  --bg-color: #032430;
 }
-/* 
-:root {
-  --main-color: #e9f8f9;
-  --alt-color: #c0eef2;
-  --active-color: #537fe7;
-  --transition-duration: 0.3s;
-  --white: #e7f6f2;
-  --bg-color: #181823;
-} */
+
+/*  */
 
 ::-webkit-scrollbar {
   background-color: var(--bg-color);
@@ -373,6 +367,15 @@ main .container figure {
   left: 0;
   top: 0;
   z-index: -1;
+  animation: main-image infinite 1s linear alternate;
+}
+@keyframes main-image {
+  0% {
+    top: 0px;
+  }
+  100% {
+    top: -20px;
+  }
 }
 
 main .container .arr {
